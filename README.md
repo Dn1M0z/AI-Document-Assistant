@@ -3,12 +3,12 @@
 **Developer:** Daniel Mozafari  
 ## Project status
 
-**Phase:** Requirements and user stories finalised; demonstration PDFs revised for review.  
+**Phase:** Requirements and user stories finalised; demonstration documents approved and added to the repository.  
 **Last updated:** 11 November 2026
 
 - **Completed:** Project scope, development plan, first-release requirements, role hierarchy, essential/later feature checklists, and [16 approved user stories with acceptance criteria](USER_STORIES.md).
-- **Demonstration documents:** Ten clothing-company demonstration PDFs revised for review (four public-facing, three internal, three mixed), covering 30 product families, 12 employee records, six suppliers, and expanded inventory. Documents range from one to six pages, within the 100-page limit. PDFs have not been added to this repository.
-- **Next:** Review the demonstration PDFs and prepare the initial 10-question sample dataset.
+- **Demonstration documents:** Ten approved clothing-company demonstration PDFs added in [demonstration-documents](demonstration-documents/) (four public-facing, three internal, three mixed), covering 30 product families, 12 employee records, six suppliers, and expanded inventory. Documents range from one to six pages, within the 100-page limit. The folder includes a company introduction and an AI-generated document disclosure.
+- **Next:** Prepare the initial 10-question sample dataset using the approved demonstration documents.
 - **Implementation:** Application programming has not started.
 
 This section is the sole source of overall project status. It must be updated whenever the phase or milestone status changes, including completed work, the next step, and the last-updated date. Other documents link here rather than duplicate the status.
