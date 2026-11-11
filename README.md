@@ -3,11 +3,11 @@
 **Developer:** Daniel Mozafari  
 ## Project status
 
-**Phase:** Requirements finalised; detailed user stories and acceptance scenarios are next.  
+**Phase:** Requirements, user stories, and acceptance criteria finalised.  
 **Last updated:** 11 November 2026
 
-- **Completed:** Project scope, development plan, first-release requirements, role hierarchy, and essential/later feature checklists.
-- **Next:** Write detailed user stories and acceptance scenarios, including role-based permissions.
+- **Completed:** Project scope, development plan, first-release requirements, role hierarchy, essential/later feature checklists, and [16 approved user stories with acceptance criteria](USER_STORIES.md).
+- **Next:** Select demonstration documents and prepare the initial 10-question sample dataset.
 - **Implementation:** Application programming has not started.
 
 This section is the sole source of overall project status. It must be updated whenever the phase or milestone status changes, including completed work, the next step, and the last-updated date. Other documents link here rather than duplicate the status.
