@@ -11,7 +11,7 @@ Daniel will develop an AI document assistant that allows a user to upload docume
 
 The project will use retrieval-augmented generation (RAG). The system will retrieve relevant passages from the selected documents and provide those passages to a language model to generate an answer. Uploading documents will index their contents for retrieval; it will not retrain the language model.
 
-Daniel will use this project to demonstrate applied AI engineering, information retrieval, backend development, interface design, and systematic evaluation for AI and ML engineering roles.
+Daniel will use this project to demonstrate applied AI engineering, information retrieval, backend development, interface design, system architecture and systematic evaluation.
 
 ### Objectives
 
