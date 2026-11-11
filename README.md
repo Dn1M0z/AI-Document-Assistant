@@ -1,11 +1,24 @@
 # AI Document Assistant
 
 **Developer:** Daniel Mozafari  
-**Status:** Planning — this repository currently contains the project scope and development plan. Application development has not started.
+## Project status
+
+**Phase:** Requirements finalised; detailed user stories and acceptance scenarios are next.  
+**Last updated:** 11 November 2026
+
+- **Completed:** Project scope, development plan, first-release requirements, role hierarchy, and essential/later feature checklists.
+- **Next:** Write detailed user stories and acceptance scenarios, including role-based permissions.
+- **Implementation:** Application programming has not started.
+
+This section is the sole source of overall project status. It must be updated whenever the phase or milestone status changes, including completed work, the next step, and the last-updated date. Other documents link here rather than duplicate the status.
+
+## First-release requirements
+
+See [REQUIREMENTS.md](REQUIREMENTS.md) for the combined functional requirements, Administrator / Document Manager / Reader permission matrix, limits, quality targets, and essential-versus-later checklists.
 
 ## Development plan
 
-See the [detailed project plan](PROJECT_PLAN.md) for task-by-task estimates, architecture diagrams, UI design, programming, testing, evaluation, and release milestones. The plan estimates **79 focused hours**, plus **8–16 hours of contingency** (**87–95 hours overall**, or approximately **6–7 weeks at 15 hours per week**).
+See the [detailed project plan](PROJECT_PLAN.md) for task-by-task estimates, architecture diagrams, UI design, programming, testing, evaluation, and release milestones. The plan estimates **91–97 focused hours**, plus **8–16 hours of contingency** (**99–113 hours overall**, or approximately **7–8 weeks at 15 hours per week**).
 
 ## Project scope
 
@@ -30,13 +43,15 @@ Daniel will:
 
 ### Initial scope
 
-The first release will support English, text-based PDF documents and single-turn questions. A demonstration collection will use publicly available technical documentation, with robotics manuals as a potential focus. Daniel will check redistribution permissions before including documents in the repository.
+The first release will support authenticated users with Administrator, Document Manager, and Reader roles, English text-based PDFs, and single-turn questions. All active users share one document collection; only Document Managers and Administrators may upload, retry processing, or delete documents. Only Administrators manage accounts and roles. A demonstration collection will use publicly available technical documentation, with robotics manuals as a potential focus. Daniel will check redistribution permissions before including documents in the repository.
 
 | Feature | Planned behaviour |
 | --- | --- |
-| PDF upload | The user will upload one or more PDFs within documented file-size and page-count limits. |
+| PDF upload | A Document Manager or Administrator will upload one or more PDFs within documented file-size and page-count limits. |
 | Processing status | The system will display queued, processing, ready, or failed status, with useful error messages. |
-| Document management | The user will list documents and delete documents together with their indexed content. |
+| Document management | Active users can list documents; only Document Managers and Administrators can delete documents and indexed content. |
+| Accounts and roles | Administrators manage accounts and roles; the backend enforces permissions, session revocation, and protected source access. |
+| Audit records | Administrators can view records of document-management and account changes. |
 | Document selection | The user will ask questions against one document or a selected collection. |
 | Semantic retrieval | The system will retrieve relevant passages even when the question uses different wording. |
 | Grounded answers | The system will generate answers using retrieved evidence from the selected documents. |
@@ -47,9 +62,9 @@ The first release will support English, text-based PDF documents and single-turn
 
 ### Illustrative user journey
 
-1. The user uploads a technical manual.
+1. A Document Manager or Administrator logs in and uploads a technical manual.
 2. The system extracts and indexes its contents.
-3. The user selects the manual and asks a question.
+3. An authenticated user, including a Reader, selects the manual and asks a question.
 4. The system retrieves relevant passages and generates an answer.
 5. The user selects a citation to inspect the exact supporting text in the original PDF.
 
@@ -108,7 +123,7 @@ These choices are provisional and will be recorded with exact versions during im
 | PDF viewer | PDF.js | Page rendering and evidence highlights. |
 | Embeddings | A pretrained Sentence Transformers model | Local text embedding generation. |
 | Vector search | Qdrant | Embedding storage and retrieval. |
-| Metadata | SQLite initially | Documents, processing status, and experiment records. |
+| Metadata | SQLite initially | Users, roles, sessions, audit records, documents, processing status, and experiment records. |
 | Answer generation | One hosted language-model API | Answer generation from retrieved evidence. |
 | Testing | pytest | Pipeline, API, and failure-case verification. |
 | Delivery | Docker Compose and GitHub Actions | Reproducible local setup and automated checks. |
@@ -131,7 +146,7 @@ Qdrant's [hybrid search and reranking documentation](https://qdrant.tech/documen
 
 ## Evaluation plan
 
-Daniel will create approximately 60–100 manually checked questions with expected answers and supporting source passages where applicable. Development and held-out test questions will be separated before tuning.
+Daniel will create 60 manually checked questions for the first release with expected answers and supporting source passages where applicable. Development and held-out test questions will be separated before tuning.
 
 The dataset will include:
 
@@ -171,11 +186,11 @@ These are proposed targets, not achieved results.
 
 ## Implementation roadmap
 
-The initial planning estimate is six to eight weeks of part-time development. The estimate will be revised as implementation progresses.
+The planning estimate is seven to eight weeks at approximately 15 hours per week, including accounts and role-based permissions. The estimate will be revised as implementation progresses.
 
 | Milestone | Planned deliverable |
 | --- | --- |
-| 1. Dataset and ingestion | Demonstration documents, extraction, source metadata, and processing status. |
+| 1. Access foundation, dataset and ingestion | Accounts, roles, protected operations, demonstration documents, extraction, source metadata, and processing status. |
 | 2. Retrieval baseline | Chunking, embeddings, vector storage, and inspectable retrieval results. |
 | 3. Grounded answers | Question-answering endpoint, structured citations, and insufficient-evidence handling. |
 | 4. User interface | Uploads, document selection, answer panel, and source highlights. |
@@ -189,10 +204,11 @@ The initial planning estimate is six to eight weeks of part-time development. Th
 - Multilingual document support.
 - Multi-turn conversational memory.
 - Language-model fine-tuning or training from scratch.
-- Multi-user accounts, team workspaces, and production access controls.
+- Team workspaces, per-document permissions, custom roles, and multiple isolated organisations.
+- Public registration, email invitations/password resets, single sign-on, and multi-factor authentication.
 - Autonomous actions beyond document retrieval and answer generation.
 
-These capabilities may be considered after the core pipeline and evaluation are reliable. If Daniel publishes a public demo before implementing access controls, it will use a fixed collection of public documents rather than accept private uploads.
+These capabilities may be considered after the core pipeline and evaluation are reliable. Any public demo will use a fixed collection of public documents and Reader access. Visitors cannot upload or delete documents, and shared demo credentials must not grant elevated roles.
 
 ## Risks and limitations
 
