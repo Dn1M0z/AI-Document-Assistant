@@ -1,16 +1,15 @@
 # AI Document Assistant — Project Plan
 
 **Developer:** Daniel Mozafari  
-**Status:** Planned; implementation tasks have not yet been completed.  
-**Related document:** [Project scope](README.md)
+**Related documents:** [Project scope and current project status](README.md) · [First-release requirements](REQUIREMENTS.md)
 
 ## Estimate and assumptions
 
-Daniel will implement the project using existing models, with guidance where needed. The plan allocates **79 focused working hours**, plus **8–16 hours for unexpected integration fixes**, for a practical total of **87–95 hours**. At approximately **15 hours per week**, the project should take **6–7 weeks**.
+Daniel will implement the project using existing models, with guidance where needed. The plan allocates **79 hours for the document assistant plus 12–18 hours for accounts and role-based access**, plus **8–16 hours for unexpected integration fixes**, for a practical total of **99–113 hours**. At approximately **15 hours per week**, the project should take **7–8 weeks**.
 
 A basic upload → question → answer prototype is expected within the first **25–35 hours of implementation work**. Accurate source highlighting, evaluation, and reliable error handling will require additional work.
 
-The first release assumes English text-based PDFs, one user, no model training, and no OCR. Task estimates include routine debugging. Additional learning time will be recorded separately, and estimates will be revised using actual progress.
+The first release assumes English text-based PDFs, authenticated users with Administrator, Document Manager, and Reader roles sharing one collection, no model training, and no OCR. Task estimates include routine debugging. Additional learning time will be recorded separately, and estimates will be revised using actual progress.
 
 ## 1. Requirements and project organisation — 3 hours
 
@@ -30,11 +29,11 @@ Daniel will use Mermaid diagrams committed to the repository wherever practical 
 | Task / diagram | What it will show | Time |
 | --- | --- | ---: |
 | Architecture decisions | Responsibilities of the frontend, backend, processing worker, metadata database, vector store, and model provider | 1 hr |
-| C4 system context diagram | User, document assistant, external model provider, and system boundary | 30 min |
+| C4 system context diagram | Reader, Document Manager, Administrator, document assistant, external model provider, and system boundary | 30 min |
 | C4 container diagram | React frontend, Python API, ingestion worker, document storage, SQLite, Qdrant, and their connections | 45 min |
 | Document ingestion activity diagram | Validate → extract → chunk → embed → index, including failures and retries | 45 min |
-| Question-answering sequence diagram | User request, document filtering, retrieval, generation, citation validation, and response | 1 hr |
-| Entity relationship diagram | Documents, processing jobs, chunks, source spans, and evaluation records; distinguish database records from vector-store payloads | 1 hr |
+| Question-answering sequence diagram | Authenticated request, permission checks, document filtering, retrieval, generation, citation validation, and response | 1 hr |
+| Entity relationship diagram | Users, roles, sessions, audit records, documents, processing jobs, chunks, source spans, and evaluation records; distinguish database records from vector-store payloads | 1 hr |
 | Document state diagram | Queued, processing, ready, failed, and deleting, with permitted transitions | 30 min |
 | Deployment diagram | Application services, persistent volumes, secrets, and external API | 30 min |
 | API contract | Request/response formats, errors, processing status, and structured citation objects | 1 hr |
@@ -144,6 +143,22 @@ The report will compare semantic retrieval, hybrid retrieval, and hybrid retriev
 
 A hosted demo will depend on available hosting and budget. If hosting becomes a distraction, a reliable local setup and demonstration video will provide reviewable evidence for the initial release.
 
+## Accounts and role-based access — additional 12–18 hours
+
+This addition extends the original task estimates; it is not included in the eight base-category totals below.
+
+| Task | Deliverable / completion condition | Time |
+| --- | --- | ---: |
+| Extend architecture and UI design | Seven diagrams, API contracts, login/account screens, role-aware workflows, and access-control decisions reflect the hierarchy | 2 hr |
+| Implement authentication | Password hashing, login/logout, sessions, login rate limiting, and secure administrator bootstrap | 3–4 hr |
+| Enforce permissions | Backend checks protect all operations and source files; revocation, changed roles, and last-administrator protection work | 2–3 hr |
+| Implement account administration UI and API | Administrators create/deactivate users and assign roles; UI actions match permissions | 2–3 hr |
+| Implement audit records and basic administrator view | Actor, action, target, timestamp, and outcome recorded without passwords or document contents | 1–2 hr |
+| Test access controls | Direct API and browser tests verify the permission matrix, unauthenticated access, deactivation, role changes, and administrator safeguards | 2–4 hr |
+| **Additional effort** | | **12–18 hr** |
+
+Authentication and permission enforcement must be integrated before an accessible multi-user deployment. Source files must not bypass backend authorisation. Public demonstration access is Reader-only with fixed public documents.
+
 ## Time budget
 
 | Category | Focused time |
@@ -156,9 +171,11 @@ A hosted demo will depend on available hosting and budget. If hosting becomes a 
 | Frontend programming | 13 hr |
 | Testing and evaluation | 15 hr |
 | Deployment and portfolio presentation | 8 hr |
-| **Planned work** | **79 hr** |
+| Base document-assistant work | 79 hr |
+| Accounts and role-based access | 12–18 hr |
+| **Planned work** | **91–97 hr** |
 | Unexpected integration fixes | **8–16 hr** |
-| **Practical total** | **87–95 hr** |
+| **Practical total** | **99–113 hr** |
 
 These are planning estimates, not strict deadlines. Extra learning time for unfamiliar embeddings, PDF coordinates, or deployment tooling will be recorded separately.
 
@@ -166,13 +183,14 @@ These are planning estimates, not strict deadlines. Extra learning time for unfa
 
 | Week | Focus | Expected outcome |
 | --- | --- | --- |
-| 1 | Requirements, architecture, and initial UI design | Clear design and development plan |
-| 2 | Finish design/setup; implement ingestion and retrieval | PDFs can be processed and searched |
-| 3 | Answer generation, citations, and initial frontend | First usable question-answering prototype |
-| 4 | Complete frontend and source highlighting | Complete user journey |
-| 5 | Testing, evaluation dataset, and retrieval comparisons | Measured quality and documented weaknesses |
-| 6 | Remaining fixes, deployment, documentation, and video | Portfolio release |
-| Small overflow if needed | Remaining integration issues | Approximately 6–7 weeks overall |
+| 1 | Requirements, architecture, role model, and initial UI design | Clear design and development plan |
+| 2 | Finish design/setup; authentication and ingestion | Protected foundation and initial PDF processing |
+| 3 | Retrieval, answer generation, citations, and permission enforcement | Authorised question-answering prototype |
+| 4 | Frontend, source highlighting, and account administration | Complete role-aware user journey |
+| 5 | Audit records, permission tests, integration tests, and evaluation dataset | Verified access boundaries and evaluation inputs |
+| 6 | Retrieval comparisons, remaining testing, and fixes | Measured quality and documented weaknesses |
+| 7 | Deployment, documentation, video, and release checks | Portfolio release when completion criteria are met |
+| 8 if needed | Integration contingency and remaining fixes | Approximately 7–8 weeks overall |
 
 The schedule is indicative: tasks can overlap, and early tests and evaluation questions will be developed alongside implementation.
 
@@ -187,8 +205,8 @@ The release will demonstrate more than a working interface:
 - Precise evidence highlighting will make answers inspectable.
 - Latency and cost reporting will show practical awareness of operating an AI system.
 
-## First action
+## Working sequence and status maintenance
 
-Daniel will begin with the acceptance criteria and a 10-question sample dataset. These will establish what the application must achieve before the architecture and code are developed.
+Daniel will use [REQUIREMENTS.md](REQUIREMENTS.md) to develop detailed user stories and acceptance scenarios, then prepare a 10-question sample dataset before architecture and implementation.
 
-The task board, diagrams, mockups, code, tests, deployment, and reports described above are planned deliverables; this document does not indicate that they already exist.
+The README is the sole source for overall project status. Whenever the project changes phase or a milestone changes the reported status, the same change must update the README status, completed work, next step, and last-updated date. Other documents link to that section rather than duplicate it. Feature checkboxes track implementation evidence and do not replace the README project status.
