@@ -1,7 +1,11 @@
 # AI Document Assistant
 
 **Developer:** Daniel Mozafari  
-**Status:** Planning — this repository currently contains the project scope. Application development has not started.
+**Status:** Planning — this repository currently contains the project scope and development plan. Application development has not started.
+
+## Development plan
+
+See the [detailed project plan](PROJECT_PLAN.md) for task-by-task estimates, architecture diagrams, UI design, programming, testing, evaluation, and release milestones. The plan estimates **79 focused hours**, plus **8–16 hours of contingency** (**87–95 hours overall**, or approximately **6–7 weeks at 15 hours per week**).
 
 ## Project scope
 
