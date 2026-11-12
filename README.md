@@ -3,13 +3,14 @@
 **Developer:** Daniel Mozafari  
 ## Project status
 
-**Phase:** Requirements and user stories finalised; demonstration documents and initial question set added to the repository.  
-**Last updated:** 11 November 2026
+**Phase:** Planning baseline and milestone-based task tracking established; sample-answer annotations and architecture design are next.  
+**Last updated:** 12 November 2026
 
 - **Completed:** Project scope, development plan, first-release requirements, role hierarchy, essential/later feature checklists, and [16 approved user stories with acceptance criteria](USER_STORIES.md).
 - **Demonstration documents:** Ten approved clothing-company demonstration PDFs added in [demonstration-documents](demonstration-documents/) (four public-facing, three internal, three mixed), covering 30 product families, 12 employee records, six suppliers, and expanded inventory. Documents range from one to six pages, within the 100-page limit. The folder includes [company background and an AI-generated document disclosure](demonstration-documents/COMPANY_BACKGROUND.md).
 - **Demonstration questions:** [12 questions with IDs, test purposes and target audiences](demonstration-documents/DEMONSTRATION_QUESTIONS.md) added: nine document-supported questions and three unsupported cases. Audience labels are scenario guidance, not changes to first-release access rules.
-- **Next:** Prepare and review expected answers and source-page annotations for the initial question set.
+- **Task tracking:** [48 GitHub issues](https://github.com/Dn1M0z/AI-Document-Assistant/issues) grouped into [seven milestones](https://github.com/Dn1M0z/AI-Document-Assistant/milestones), with completion checklists, estimates, dependencies and an assignee. The approved planning baseline and task-board setup are complete; implementation tasks remain open. Calendar due dates are unset pending an agreed start date.
+- **Next:** [Annotate the initial 12 questions with expected answers and source pages](https://github.com/Dn1M0z/AI-Document-Assistant/issues/3), then work through the architecture and UI-design tasks in milestone M0.
 - **Implementation:** Application programming has not started.
 
 This section is the sole source of overall project status. It must be updated whenever the phase or milestone status changes, including completed work, the next step, and the last-updated date. Other documents link here rather than duplicate the status.
