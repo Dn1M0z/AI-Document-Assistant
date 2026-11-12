@@ -3,17 +3,10 @@
 **Developer:** Daniel Mozafari  
 ## Project status
 
-**Phase:** Planning baseline, milestone-based task tracking and initial demonstration-answer annotations complete; architecture and UI design are next.  
+**Phase:** Architecture design — [issue #4](https://github.com/Dn1M0z/AI-Document-Assistant/issues/4) draft under review.  
+**Completed:** Planning baseline, task board, demonstration PDFs and 12 annotated questions ([#3](https://github.com/Dn1M0z/AI-Document-Assistant/issues/3)).  
+**Implementation:** Not started.  
 **Last updated:** 12 November 2026
-
-- **Completed:** Project scope, development plan, first-release requirements, role hierarchy, essential/later feature checklists, and [16 approved user stories with acceptance criteria](USER_STORIES.md).
-- **Demonstration documents:** Ten approved clothing-company demonstration PDFs added in [demonstration-documents](demonstration-documents/) (four public-facing, three internal, three mixed), covering 30 product families, 12 employee records, six suppliers, and expanded inventory. Documents range from one to six pages, within the 100-page limit. The folder includes [company background and an AI-generated document disclosure](demonstration-documents/COMPANY_BACKGROUND.md).
-- **Demonstration questions:** [12 questions with IDs, test purposes, target audiences, approved expected answers and source-page evidence](demonstration-documents/DEMONSTRATION_QUESTIONS.md) added: nine document-supported questions and three unsupported cases. Category ambiguity and table-extraction limitations are documented; these annotations are not achieved application test results. Audience labels are scenario guidance, not changes to first-release access rules.
-- **Task tracking:** [48 GitHub issues](https://github.com/Dn1M0z/AI-Document-Assistant/issues) grouped into [seven milestones](https://github.com/Dn1M0z/AI-Document-Assistant/milestones), with completion checklists, estimates, dependencies and an assignee. The approved planning baseline, task-board setup and initial answer annotations ([#3](https://github.com/Dn1M0z/AI-Document-Assistant/issues/3)) are complete; implementation tasks remain open. Calendar due dates are unset pending an agreed start date.
-- **Next:** Work through the architecture and UI-design tasks in milestone M0.
-- **Implementation:** Application programming has not started.
-
-This section is the sole source of overall project status. It must be updated whenever the phase or milestone status changes, including completed work, the next step, and the last-updated date. Other documents link here rather than duplicate the status.
 
 ## First-release requirements
 
