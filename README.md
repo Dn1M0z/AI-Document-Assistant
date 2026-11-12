@@ -3,8 +3,8 @@
 **Developer:** Daniel Mozafari  
 ## Project status
 
-**Phase:** Architecture design — [issue #4](https://github.com/Dn1M0z/AI-Document-Assistant/issues/4) draft under review.  
-**Completed:** Planning baseline, task board, demonstration PDFs and 12 annotated questions ([#3](https://github.com/Dn1M0z/AI-Document-Assistant/issues/3)).  
+**Phase:** Architecture diagrams and UI design next.  
+**Completed:** Planning, demonstration documents/questions, and [component responsibilities with eight ADRs](ARCHITECTURE.md).  
 **Implementation:** Not started.  
 **Last updated:** 12 November 2026
 
