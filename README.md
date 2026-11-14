@@ -4,7 +4,7 @@
 ## Project status
 
 **Phase:** Remaining architecture diagrams and UI design next.  
-**Completed:** Planning, demonstration documents/questions, [eight ADRs](Architecture/Architecture_Decision_Records.md) and the [C4 system context diagram](Architecture/C4_System_Context.drawio).  
+**Completed:** Planning, demonstration documents/questions, [eight ADRs](Architecture/Architecture_Decision_Records.md) and C4 [context](Architecture/C4_System_Context.drawio) / [container](Architecture/C4_Container.drawio) diagrams.  
 **Implementation:** Not started.  
 **Last updated:** 14 November 2026
 
