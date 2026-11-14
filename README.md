@@ -3,10 +3,10 @@
 **Developer:** Daniel Mozafari  
 ## Project status
 
-**Phase:** Architecture diagrams and UI design next.  
-**Completed:** Planning, demonstration documents/questions, and [component responsibilities with eight ADRs](ARCHITECTURE.md).  
+**Phase:** Remaining architecture diagrams and UI design next.  
+**Completed:** Planning, demonstration documents/questions, [eight ADRs](Architecture/Architecture_Decision_Records.md) and the [C4 system context diagram](Architecture/C4_System_Context.drawio).  
 **Implementation:** Not started.  
-**Last updated:** 12 November 2026
+**Last updated:** 14 November 2026
 
 ## First-release requirements
 
