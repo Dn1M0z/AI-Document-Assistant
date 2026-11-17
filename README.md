@@ -4,9 +4,9 @@
 ## Project status
 
 **Phase:** Remaining architecture diagrams and UI design next.  
-**Completed:** Planning, demonstration documents/questions, [eight ADRs](Architecture/Architecture_Decision_Records.md) and C4 [context](Architecture/C4_System_Context.drawio) / [container](Architecture/C4_Container.drawio) diagrams.  
+**Completed:** Planning, demonstration documents/questions, [eight ADRs](Architecture/Architecture_Decision_Records.md) and C4 [context](Architecture/C4_System_Context.drawio) / [container](Architecture/C4_Container.drawio) diagrams, and the [ingestion activity diagram](Architecture/Document_Ingestion_Activity.drawio).  
 **Implementation:** Not started.  
-**Last updated:** 14 November 2026
+**Last updated:** 17 November 2026
 
 ## First-release requirements
 
